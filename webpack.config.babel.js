@@ -2,7 +2,7 @@ import path from 'path';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV !== 'development';
-const libraryName = "SbList";
+const libraryName = "react-sb-components";
 
 const config = {
 	entry: path.join(__dirname, 'src/index.js'),
