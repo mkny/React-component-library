@@ -22,6 +22,9 @@ const config = {
 		'react': 'React',
 		'react-dom': 'ReactDOM',
 	},
+	resolve: {
+		extensions: ['.js', '.jsx']
+	},
 	module: {
 		rules: [{
 			test: /(\.jsx|\.js)$/,

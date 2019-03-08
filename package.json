@@ -12,8 +12,8 @@
   },
   "homepage": "https://github.com/mkny/react-sb-components#readme",
   "bugs": {
-    "url" : "https://github.com/mkny/react-sb-components/issues",
-    "email" : "desenvolvedor@me.com"
+    "url": "https://github.com/mkny/react-sb-components/issues",
+    "email": "desenvolvedor@me.com"
   },
   "scripts": {
     "clean": "rimraf es dist lib",
@@ -24,7 +24,7 @@
     "build": "yarn clean && yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:umd:min",
     "prepublishOnly": "yarn install --check-files && yarn build"
   },
-  "files" : [
+  "files": [
     "src/*",
     "dist/*",
     "lib/*",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
@@ -53,7 +54,13 @@
     "presets": [
       "@babel/preset-react",
       "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-react-jsx"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "prop-types": "^15.7.2"
+  }
 }
