@@ -1,0 +1,72 @@
+{
+	"name": "react-sb-components",
+	"version": "0.0.1-beta.1",
+	"main": "lib/index.js",
+	"module": "es/index.js",
+	"jsnext:main": "es/index.js",
+	"license": "MIT",
+	"author": "Marcony Neves<desenvolvedor@me.com>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SoftboxLab/react-sb-components.git"
+	},
+	"homepage": "https://github.com/SoftboxLab/react-sb-components#readme",
+	"bugs": {
+		"url": "https://github.com/SoftboxLab/react-sb-components/issues",
+		"email": "desenvolvedor@me.com"
+	},
+	"scripts": {
+		"clean": "rimraf es dist lib",
+		"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+		"build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+		"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
+		"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack",
+		"build": "yarn clean && yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:umd:min",
+		"prepublishOnly": "yarn install --check-files && yarn build",
+		"glint": "./node_modules/.bin/eslint ./src/*.js"
+	},
+	"files": [
+		"src/*",
+		"dist/*",
+		"lib/*",
+		"es/*"
+	],
+	"peerDependencies": {
+		"react": "^0.14.6 || 15.x.x || 16.x.x"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.2.3",
+		"@babel/core": "^7.3.4",
+		"@babel/plugin-transform-react-jsx": "^7.3.0",
+		"@babel/preset-env": "^7.3.4",
+		"@babel/preset-react": "^7.0.0",
+		"@babel/register": "^7.0.0",
+		"@softboxlab/eslint-config-gandalf-lint-react": "^0.1.0",
+		"babel-loader": "^8.0.5",
+		"concurrently": "^4.1.0",
+		"cross-env": "^5.2.0",
+		"eslint": "^5.15.1",
+		"eslint-config-prettier": "^4.1.0",
+		"eslint-plugin-prettier": "^3.0.1",
+		"prettier": "^1.16.4",
+		"react": "^16.8.3",
+		"react-dom": "^16.8.3",
+		"rimraf": "^2.6.3",
+		"uglifyjs-webpack-plugin": "^2.1.2",
+		"webpack": "^4.29.5",
+		"webpack-cli": "^3.2.3"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-react",
+			"@babel/preset-env"
+		],
+		"plugins": [
+			"@babel/plugin-transform-react-jsx"
+		]
+	},
+	"dependencies": {
+		"@material-ui/core": "^3.9.2",
+		"prop-types": "^15.7.2"
+	}
+}
