@@ -22,7 +22,8 @@
 		"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
 		"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack",
 		"build": "yarn clean && yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:umd:min",
-		"prepublishOnly": "yarn install --check-files && yarn build"
+		"prepublishOnly": "yarn install --check-files && yarn build",
+		"glint": "./node_modules/.bin/eslint ./src/*.js"
 	},
 	"files": [
 		"src/*",
@@ -40,9 +41,14 @@
 		"@babel/preset-env": "^7.3.4",
 		"@babel/preset-react": "^7.0.0",
 		"@babel/register": "^7.0.0",
+		"@softboxlab/eslint-config-gandalf-lint-react": "^0.1.0",
 		"babel-loader": "^8.0.5",
 		"concurrently": "^4.1.0",
 		"cross-env": "^5.2.0",
+		"eslint": "^5.15.1",
+		"eslint-config-prettier": "^4.1.0",
+		"eslint-plugin-prettier": "^3.0.1",
+		"prettier": "^1.16.4",
 		"react": "^16.8.3",
 		"react-dom": "^16.8.3",
 		"rimraf": "^2.6.3",

@@ -1,1 +1,1 @@
-export { default as FileUpload } from './components/FileUpload';
+export { default as FileUpload } from "./components/FileUpload";

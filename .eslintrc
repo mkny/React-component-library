@@ -1,0 +1,22 @@
+{
+	"extends": [
+		"@softboxlab/eslint-config-gandalf-lint-react",
+		"prettier"
+	],
+	"plugins": [
+		"prettier"
+	],
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"env": {
+		"jest": true,
+		"browser": true
+	},
+	"rules": {
+		"prettier/prettier": "error"
+	}
+}
