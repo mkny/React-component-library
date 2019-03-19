@@ -16,13 +16,16 @@
     "email": "desenvolvedor@me.com"
   },
   "scripts": {
-    "clean": "rimraf es dist lib",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
-    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack",
-    "build": "yarn clean && yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:umd:min",
-    "prepublishOnly": "yarn install --check-files && yarn build"
+		"clean": "rimraf es dist lib",
+		"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+		"build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+		"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
+		"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack",
+		"build": "yarn clean && yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:umd:min",
+		"prepublishOnly": "yarn install --check-files && yarn build",
+		"glint": "./node_modules/.bin/eslint ./src/*.js",
+		"docz:dev": "docz dev",
+		"docz:build": "docz build"
   },
   "files": [
     "src/*",
@@ -48,7 +51,15 @@
     "rimraf": "^2.6.3",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+		"webpack-cli": "^3.2.3",		
+		"@softboxlab/eslint-config-gandalf-lint-react": "^0.1.0",
+		"babel-preset-react-app": "^7.0.2",
+		"docz": "^0.13.7",
+		"docz-theme-default": "^0.13.7",
+		"eslint": "^5.15.1",
+		"eslint-config-prettier": "^4.1.0",
+		"eslint-plugin-prettier": "^3.0.1",
+		"prettier": "^1.16.4"
   },
   "babel": {
     "presets": [

@@ -6,7 +6,7 @@ const libraryName = "react-sb-components";
 
 const config = {
 	entry: path.join(__dirname, 'src/index.js'),
-	mode: isProduction ? 'production':'development',
+	mode: isProduction ? 'production' : 'development',
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: libraryName + (isProduction ? '.min.js' : '.js'),
