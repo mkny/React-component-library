@@ -1,9 +1,7 @@
 {
   "name": "react-sb-components",
   "version": "0.0.1-beta.5",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "jsnext:main": "es/index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "author": "Marcony Neves<desenvolvedor@me.com>",
   "repository": {
@@ -16,62 +14,49 @@
     "email": "desenvolvedor@me.com"
   },
   "scripts": {
-		"clean": "rimraf es dist lib",
-		"build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-		"build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-		"build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack",
-		"build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack",
-		"build": "yarn clean && yarn build:commonjs && yarn build:es && yarn build:umd && yarn build:umd:min",
-		"prepublishOnly": "yarn install --check-files && yarn build",
-		"glint": "./node_modules/.bin/eslint ./src/*.js",
-		"docz:dev": "docz dev",
-		"docz:build": "docz build"
+    "clean": "rimraf es dist lib",
+    "dev": "yarn build:es --watch",
+    "build": "yarn clean && yarn build:es",
+    "build:es": "cross-env BABEL_ENV=production babel src --out-dir dist --ignore '**/__tests__/**'",
+    "prepublishOnly": "yarn install --check-files && yarn build",
+    "lint": "eslint src",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "files": [
-    "src/*",
-    "dist/*",
-    "lib/*",
-    "es/*"
+    "dist"
   ],
   "peerDependencies": {
-    "react": "^0.14.6 || 15.x.x || 16.x.x"
+    "react": "^16.8.x"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "concurrently": "^4.1.0",
+    "@softboxlab/eslint-config-gandalf-lint": "^0.3.0",
+    "babel-eslint": "^10.0.1",
     "cross-env": "^5.2.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "rimraf": "^2.6.3",
-    "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "^4.29.5",
-		"webpack-cli": "^3.2.3",		
-		"@softboxlab/eslint-config-gandalf-lint-react": "^0.1.0",
-		"babel-preset-react-app": "^7.0.2",
-		"docz": "^0.13.7",
-		"docz-theme-default": "^0.13.7",
-		"eslint": "^5.15.1",
-		"eslint-config-prettier": "^4.1.0",
-		"eslint-plugin-prettier": "^3.0.1",
-		"prettier": "^1.16.4"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react",
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      "@babel/plugin-transform-react-jsx"
-    ]
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rimraf": "^2.6.3"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
-    "prop-types": "^15.7.2"
+    "formik": "^1.5.2",
+    "i18next": "^15.0.9",
+    "i18next-browser-languagedetector": "^3.0.1",
+    "prop-types": "^15.7.2",
+    "react-dropzone": "^10.0.6",
+    "react-i18next": "^10.7.0",
+    "yup": "^0.27.0"
+  },
+  "removedDeps": {
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7"
   }
 }

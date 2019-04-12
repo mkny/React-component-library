@@ -1,15 +1,15 @@
-import React from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
+import React from 'react'
+import PropTypes from 'prop-types'
+import withField from './withField'
+// import MuiInput from '@material-ui/core/TextField'
+// const InputField = withField(MuiInput)
 
-class InputText extends React.Component {
-    render(){
-        console.log(this.props);
-        return (
-            <React.Fragment>
-                <InputLabel>Labelize</InputLabel>
-            </React.Fragment>
-        );
-    }
+const InputText = ({ renderer: Renderer, label, name, ...rest }) => (<Renderer label={label} name={name} {...rest} />)
+
+InputText.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  renderer: PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.string])
 }
 
-export default InputText;
+export default withField(InputText)

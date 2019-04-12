@@ -1,22 +1,30 @@
 {
-	"extends": [
-		"@softboxlab/eslint-config-gandalf-lint-react",
-		"prettier"
-	],
-	"plugins": [
-		"prettier"
-	],
-	"parserOptions": {
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"jsx": true
-		}
-	},
-	"env": {
-		"jest": true,
-		"browser": true
-	},
-	"rules": {
-		"prettier/prettier": "error"
-	}
+  "extends": [
+    "@softboxlab/eslint-config-gandalf-lint",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "settings": {
+    "react": {
+      "version": "16.8.2"
+    }
+  },
+  "rules": {
+    "space-before-function-paren": "off",
+    "sort-imports": "off",
+    "sort-vars": "error",
+    "nonblock-statement-body-position": [
+      "error",
+      "beside"
+    ],
+    "no-confusing-arrow": [
+      "error",
+      {
+        "allowParens": true
+      }
+    ],
+    "import/order": "off",
+    "sort-imports-es6-autofix/sort-imports-es6": "off",
+    "id-length": "off"
+  }
 }
